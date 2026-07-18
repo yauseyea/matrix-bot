@@ -37,6 +37,26 @@ const appservice = new Appservice({
   storage,
 });
 
+const startWithRetry = async (maxRetries = 5, delayMs = 3000) => {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      await appservice.begin();
+      log.info(`Loading config for environment: ${environment}`, { port, environment });
+      log.info(`Appservice listening on port ${port}`);
+      return;
+    } catch (err) {
+      log.error(`Appservice start attempt ${attempt}/${maxRetries} failed`, {
+        error: err instanceof Error ? err.message : String(err),
+      });
+      if (attempt === maxRetries) {
+        log.error('Appservice failed to start after max retries, exiting');
+        throw err;
+      }
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+    }
+  }
+};
+
 const startApp = () => {
   const app = appservice.expressAppInstance as unknown as express.Application;
 
@@ -81,9 +101,11 @@ const startApp = () => {
 
   Matrix.setupMatrix(appservice);
 
-  appservice.begin().then(() => {
-    log.info(`Loading config for environment: ${environment}`, { port, environment });
-    log.info(`Appservice listening on port ${port}`);
+  startWithRetry().catch((err) => {
+    log.error('Fatal error during startup', {
+      error: err instanceof Error ? err.message : String(err),
+    });
+    process.exit(1);
   });
 };
 
