@@ -38,6 +38,7 @@ describe('Metrics', () => {
         asToken: '...',
         hsToken: '...',
         botLocalPart: '...',
+        configPath: '...',
       },
       webhookService: {
         url: '...',
