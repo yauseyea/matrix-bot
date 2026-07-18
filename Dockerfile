@@ -7,7 +7,7 @@ COPY src ./src
 RUN npm run build
 
 # Run stage
-FROM node:26-alpine
+FROM node:26-bookworm-slim
 RUN apk upgrade --no-cache && \
     apk add --no-cache dumb-init curl && \
     rm -rf /var/cache/apk/*
