@@ -15,7 +15,7 @@ services:
     volumes:
       - matrix-bot-data:/app/data
     ports:
-      - "9010:9000"
+      - "3110:9000"
     restart: unless-stopped
     environment:
       - NODE_ENV=${NODE_ENV}
