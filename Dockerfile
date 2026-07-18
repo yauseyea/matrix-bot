@@ -1,5 +1,5 @@
 # Build stage
-FROM node:26-alpine AS builder
+FROM node:26-bookworm-slim AS builder
 WORKDIR /app
 COPY package*.json tsconfig.json ./
 RUN npm install
@@ -8,13 +8,13 @@ RUN npm run build
 
 # Run stage
 FROM node:26-bookworm-slim
-RUN apk upgrade --no-cache && \
-    apk add --no-cache dumb-init curl && \
-    rm -rf /var/cache/apk/*
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends dumb-init curl && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S -D -H -u 1001 -h /app -s /sbin/nologin -G nodejs -g nodejs nodejs
+RUN groupadd -g 1001 nodejs && \
+    useradd -u 1001 -g nodejs -d /app -s /usr/sbin/nologin -M nodejs
 COPY package*.json ./
 RUN npm install --production
 COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
