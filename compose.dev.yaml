@@ -12,6 +12,8 @@ services:
     tmpfs:
       - /tmp
       - /app/tmp
+    volumes:
+      - matrix-bot-data:/app/data
     ports:
       - "9010:9000"
     restart: unless-stopped
@@ -37,3 +39,6 @@ services:
 networks:
   matrix_net:
     external: true
+
+volumes:
+  matrix-bot-data:

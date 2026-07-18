@@ -32,6 +32,7 @@ export const localConfig: AppConfig = {
     asToken: requireEnvVar('AS_TOKEN'),
     hsToken: requireEnvVar('HS_TOKEN'),
     botLocalPart: 'webhookbot-local',
+    configPath: './bot-storage.json',
   },
   webhookService: {
     url: requireEnvVar('WEBHOOK_URL'),

@@ -18,9 +18,8 @@ RUN groupadd -g 1001 nodejs && \
 COPY package*.json ./
 RUN npm install --production
 COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
-RUN mkdir -p /app/logs /app/tmp && \
-    touch /app/bot-storage.json && \
-    chown -R nodejs:nodejs /app/logs /app/tmp /app/bot-storage.json
+RUN mkdir -p /app/data && \
+    chown -R nodejs:nodejs /app/data
 USER nodejs
 EXPOSE 9000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \

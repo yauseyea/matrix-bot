@@ -1,6 +1,6 @@
 {
   "name": "matrix-bot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A matrix bot that forwards the message to an other microservice",
   "repository": {
     "type": "git",

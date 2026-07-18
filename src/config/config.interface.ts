@@ -33,6 +33,7 @@ export interface AppConfig {
     asToken: string;
     hsToken: string;
     botLocalPart: string;
+    configPath: string;
   };
   webhookService: {
     url: string;

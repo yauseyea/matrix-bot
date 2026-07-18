@@ -11,7 +11,7 @@ import { Matrix } from './controllers/matrixController.js';
 const log = Logger.fromConfig(config.logger);
 const { port } = config.app;
 
-const storage = new SimpleFsStorageProvider(`./bot-storage.json`);
+const storage = new SimpleFsStorageProvider(`${config.matrix.configPath}`);
 
 const appservice = new Appservice({
   homeserverName: config.matrix.name,
