@@ -19,6 +19,7 @@ COPY package*.json ./
 RUN npm install --production
 COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
 RUN mkdir -p /app/logs /app/tmp && \
+    touch /app/bot-storage.json && \
     chown -R nodejs:nodejs /app/logs /app/tmp
 USER nodejs
 EXPOSE 9000
