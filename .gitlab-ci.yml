@@ -1,0 +1,23 @@
+stages:
+  - lint
+  - test
+  - build
+  - deploy
+
+include:
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'npm-lint.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'npm-test.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'npm-build-arm.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'npm-deploy.yml'
+
+variables:
+  IMAGE_NAME: registry.yauseyenka.de/internal/micro-services/matrix-bot
+

@@ -1,0 +1,39 @@
+services:
+  app:
+    image: registry.yauseyenka.de/internal/micro-services/matrix-bot:latest
+    container_name: matrix-bot
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /app/tmp
+    ports:
+      - "9000:9000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - LOKI_URL=http://admin.docker.internal:3500
+      - TEMPO_URL=http://admin.docker.internal:3510/v1/traces
+      - PROFILING_URL=http://admin.docker.internal:4040
+      - HOMESERVER_URL=${HOMESERVER_URL}
+      - HOMESERVER_NAME=${HOMESERVER_NAME}
+      - AS_TOKEN=${AS_TOKEN}
+      - HS_TOKEN=${HS_TOKEN}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+      - WEBHOOK_API_KEY=${WEBHOOK_API_KEY}
+    networks:
+      - matrix_net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  matrix_net:
+    external: true
