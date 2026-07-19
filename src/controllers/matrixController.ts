@@ -11,20 +11,27 @@ export class Matrix {
       if (!event['content'] || event['content']['msgtype'] !== 'm.text') return;
       if (event['sender'] === appservice.botUserId) return;
 
+      const payload = {
+        room_id: roomId,
+        event_id: event['event_id'],
+        sender: event['sender'],
+        body: event['content']['body'],
+        timestamp: event['origin_server_ts'],
+      };
       try {
-        const res = await fetch('https://push.yauseyenka.de/test', {
+        const res = await fetch(`${config.webhookService.url}/webhook`, {
           method: 'POST',
           headers: {
-            'Content-Type': 'text/plain',
-            Title: `Message from ${event['sender']}`,
+            'Content-Type': 'application/json',
+            'x-api-key': config.webhookService.apiKey,
           },
-          body: event['content']['body'],
+          body: JSON.stringify(payload),
         });
         if (!res.ok) {
-          log.error(`ntfy error ${res.status}: ${await res.text()}`);
+          log.error(`Webhook error ${res.status}: ${await res.text()}`, { res });
         }
       } catch (err) {
-        log.error('Failed to send to ntfy', { error: err });
+        log.error('Failed to send webhook:', { err });
       }
     });
   }
