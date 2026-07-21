@@ -1,0 +1,11 @@
+id: webhook-bot
+url: http://matrix-bot:9000
+as_token: "changeme"
+hs_token: "changeme"
+sender_localpart: webhookbot
+io.element.msc4190: true
+rate_limited: false
+namespaces:
+  users:
+    - regex: ^@webhookbot:your\.matrix\.com$
+      exclusive: true

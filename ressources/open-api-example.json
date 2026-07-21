@@ -1,0 +1,80 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Matrix Bot",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/webhook/": {
+      "post": {
+        "summary": "Test Notification",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "operationId": "Test_Notification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "example": "{\n\t\"room_id\": \"room123\",\n\t\"event_id\": \"event111\",\n\t\"sender\": \"sender222\",\n\t\"body\": \"A test message\",\n\t\"timestamp\": \"{{timestamp}}\",\n}"
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "operationId": "Health",
+        "tags": [
+          "Metrics"
+        ]
+      }
+    },
+    "/metrics": {
+      "get": {
+        "summary": "Metrics",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        },
+        "operationId": "Metrics",
+        "tags": [
+          "Metrics"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "<<url>>"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Metrics"
+    }
+  ],
+  "x-hoppscotch-folder-tags": "slash",
+  "security": [
+    {
+      "apiKey_header_x-api-key": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "apiKey_header_x-api-key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
+    }
+  }
+}

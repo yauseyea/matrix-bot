@@ -2,6 +2,7 @@
   "name": "matrix-bot",
   "version": "1.0.0",
   "description": "A matrix bot that forwards the message to an other microservice",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "ssh://git@gitlab.yauseyenka.de/internal/micro-services/matrix-bot.git"
@@ -47,12 +48,12 @@
     "eslint": "^10.7.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",
-    "prettier": "^3.9.5",
+    "prettier": "^3.9.6",
     "supertest": "^7.2.2",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.64.0",
+    "typescript-eslint": "^8.65.0",
     "vitest": "^4.1.10"
   }
 }

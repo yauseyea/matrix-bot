@@ -3,6 +3,7 @@ stages:
   - test
   - build
   - deploy
+  - mirror
 
 include:
   - project: 'internal/ci-templates'
@@ -17,7 +18,11 @@ include:
   - project: 'internal/ci-templates'
     ref: main
     file: 'npm-deploy.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'mirror-to-github.yml'
 
 variables:
   IMAGE_NAME: registry.yauseyenka.de/internal/micro-services/matrix-bot
+  HTTPS_REPO: github.com/yauseyea/matrix-bot.git
 
