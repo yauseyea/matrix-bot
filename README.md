@@ -13,6 +13,7 @@ I wanted a lightweight bot that triggers commands in my home setup in a dedicate
 - Built-in observability: structured logging (Pino), metrics (Prometheus), tracing (OpenTelemetry), and profiling (Pyroscope) — designed to ship straight into a Grafana stack (Loki, Mimir, Tempo, Pyroscope)
 - `/health` and `/metrics` endpoints
 - Tested with Vitest
+
 ## How it works
 
 The bot registers as a Matrix Application Service. When it receives an event from the homeserver, it transforms and forwards it as a POST request to a configured webhook URL, e.g.:
@@ -51,6 +52,7 @@ The bot is configured via environment variables. Copy the `ressources/example.en
 You'll also need a Matrix Application Service registration file (`registration.yaml`) pointing at this bot, registered with your homeserver. see an example in `ressources/registration.yaml`
 
 ## Usage
+
 **Production build**
 
 ```bash
@@ -78,11 +80,11 @@ npm run format
 
 see ressources/open-api-example.json for more details
 
-| Endpoint   | Description                          |
-|------------|---------------------------------------|
-| `/health`  | Liveness/health check                 |
-| `/metrics` | Prometheus-compatible metrics         |
-| `/webhook` | Receives forwarded Matrix events *(adjust if using another entpoint)* |
+| Endpoint   | Description                                                           |
+| ---------- | --------------------------------------------------------------------- |
+| `/health`  | Liveness/health check                                                 |
+| `/metrics` | Prometheus-compatible metrics                                         |
+| `/webhook` | Receives forwarded Matrix events _(adjust if using another entpoint)_ |
 
 ## Observability
 

@@ -17,3 +17,7 @@ renovate.json
 vitest.config.ts
 example.env
 bot-storage.json
+.oxlintrc.json
+.oxfmtrc.json
+compose.dev.yaml
+compose.yaml

@@ -23,7 +23,7 @@ class ConfigManager {
     const validEnvironments: Environment[] = ['local', 'dev', 'prod'];
 
     if (!validEnvironments.includes(env as Environment)) {
-      // eslint-disable-next-line no-console
+      // oxlint-disable-next-line no-console
       console.warn(
         `Invalid NODE_ENV "${env}". Falling back to "local". Valid options: ${validEnvironments.join(', ')}`
       );

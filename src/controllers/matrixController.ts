@@ -6,7 +6,7 @@ export class Matrix {
   static setupMatrix(appservice: Appservice): void {
     const log = Logger.fromConfig(config.logger);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // oxlint-disable-next-line @typescript-eslint/no-explicit-any
     appservice.on('room.message', async (roomId: string, event: any) => {
       if (!event['content'] || event['content']['msgtype'] !== 'm.text') return;
       if (event['sender'] === appservice.botUserId) return;

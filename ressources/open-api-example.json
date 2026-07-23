@@ -32,9 +32,7 @@
           }
         },
         "operationId": "Health",
-        "tags": [
-          "Metrics"
-        ]
+        "tags": ["Metrics"]
       }
     },
     "/metrics": {
@@ -46,9 +44,7 @@
           }
         },
         "operationId": "Metrics",
-        "tags": [
-          "Metrics"
-        ]
+        "tags": ["Metrics"]
       }
     }
   },

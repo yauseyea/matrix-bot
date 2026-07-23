@@ -89,7 +89,7 @@ const startApp = () => {
   });
 
   // Error handler
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // oxlint-disable-next-line @typescript-eslint/no-unused-vars
   app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
     log.error(`${req.method} ${req.path} - 500 - ${err.message}`, { error: err });
     res.status(500).json({ error: 'An unexpected error has occurred in the backend' });
