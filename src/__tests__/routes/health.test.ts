@@ -1,6 +1,7 @@
-import { describe, it, expect } from 'vitest';
 import express from 'express';
 import request from 'supertest'; // npm i -D supertest @types/supertest
+import { describe, it, expect } from 'vitest';
+
 import healthRouter from '../../routes/health.js';
 
 const app = express();

@@ -1,4 +1,5 @@
 import { Appservice } from '@vector-im/matrix-bot-sdk';
+
 import { Logger } from '../commons/logger.js';
 import { config } from '../config/config.js';
 

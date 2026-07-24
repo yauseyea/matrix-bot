@@ -1,6 +1,7 @@
 import type { AppConfig } from './config.interface.js';
-import { localConfig } from './config.local.js';
+
 import { devConfig } from './config.dev.js';
+import { localConfig } from './config.local.js';
 import { prodConfig } from './config.pord.js';
 
 type Environment = 'local' | 'dev' | 'prod';
@@ -46,7 +47,7 @@ class ConfigManager {
         return prodConfig;
       default:
         // This should never happen due to validation, but TypeScript requires it
-        throw new Error(`Unknown environment: ${this.environment}`);
+        throw new Error(`Unknown environment`);
     }
   }
 

@@ -5,11 +5,23 @@
   "printWidth": 100,
   "bracketSpacing": true,
   "arrowParens": "always",
-  "ignorePath": ".prettierignore",
-  "spaceBeforeFunctionParen": true,
   "tabWidth": 2,
   "semi": true,
-  "sortPackageJson": false,
+  "sortPackageJson": true,
+  "sortImports": {
+    "groups": [
+      "type",
+      "side_effect",
+      "builtin",
+      "external",
+      ["internal", "subpath"],
+      ["parent", "sibling", "index"],
+      "style",
+      "unknown"
+    ],
+    "newlinesBetween": true,
+    "internalPattern": ["~/", "@/"]
+  },
   "ignorePatterns": [
     ".vscode",
     "node_modules",
@@ -17,9 +29,6 @@
     "package-lock.json",
     ".env",
     ".gitignore",
-    "eslint.config.js",
-    ".prettierrc.json",
-    "package-lock.json",
     "package.json",
     "tsconfig.json",
     "compose.dev.yaml",

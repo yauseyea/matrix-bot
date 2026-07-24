@@ -1,6 +1,7 @@
 stages:
   - lint
   - test
+  - tag
   - build
   - deploy
   - mirror
@@ -12,6 +13,9 @@ include:
   - project: 'internal/ci-templates'
     ref: main
     file: 'npm-test.yml'
+  - project: 'internal/ci-templates'
+    ref: main
+    file: 'npm-tag.yml'
   - project: 'internal/ci-templates'
     ref: main
     file: 'npm-build-arm.yml'

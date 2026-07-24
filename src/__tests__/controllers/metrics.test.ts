@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
+
 import { Metrics } from '../../controllers/metricsController.js';
 
 describe('Metrics', () => {

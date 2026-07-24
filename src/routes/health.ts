@@ -1,5 +1,6 @@
-import { Router, Request, Response } from 'express';
 import { createRequire } from 'module';
+
+import { Router, Request, Response } from 'express';
 const require = createRequire(import.meta.url);
 const { version } = require('../../package.json') as { version: string };
 

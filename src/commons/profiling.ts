@@ -1,4 +1,5 @@
 import Pyroscope from '@pyroscope/nodejs';
+
 import { config } from '../config/config.js';
 
 Pyroscope.init({

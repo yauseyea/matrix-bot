@@ -1,8 +1,9 @@
-import { describe, it, expect, vi } from 'vitest';
-import { Logger } from '../../commons/logger.js';
 import type { LoggerConfig } from '../../config/config.interface.js';
 
 import { trace } from '@opentelemetry/api';
+import { describe, it, expect, vi } from 'vitest';
+
+import { Logger } from '../../commons/logger.js';
 
 vi.mock('@opentelemetry/api', () => ({
   trace: {

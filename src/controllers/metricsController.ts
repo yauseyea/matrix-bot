@@ -1,5 +1,6 @@
-import { Registry, Gauge, collectDefaultMetrics } from 'prom-client';
 import type { AppConfig } from '../config/config.interface.js';
+
+import { Registry, Gauge, collectDefaultMetrics } from 'prom-client';
 
 export class Metrics {
   private registry: Registry;

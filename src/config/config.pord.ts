@@ -1,4 +1,5 @@
 import type { AppConfig } from './config.interface.js';
+
 import { requireEnvVar } from './config.interface.js';
 
 export const prodConfig: AppConfig = {

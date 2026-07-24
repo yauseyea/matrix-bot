@@ -1,12 +1,13 @@
+import type { LoggerConfig } from '../config/config.interface.js';
+
+import { trace } from '@opentelemetry/api';
 import pino, {
   type Logger as PinoLogger,
   type LoggerOptions,
   type TransportTargetOptions,
 } from 'pino';
-import { trace } from '@opentelemetry/api';
 
 import { LogLevel } from '../config/config.interface.js';
-import type { LoggerConfig } from '../config/config.interface.js';
 
 export class Logger {
   private logger: PinoLogger;
