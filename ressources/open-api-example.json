@@ -5,19 +5,19 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/webhook/": {
+    "/matrix/message": {
       "post": {
-        "summary": "Test Notification",
+        "summary": "Send a message to a room",
         "responses": {
           "200": {
             "description": "Successful response"
           }
         },
-        "operationId": "Test_Notification",
+        "operationId": "Send_a_message_to_a_room",
         "requestBody": {
           "content": {
             "application/json": {
-              "example": "{\n\t\"room_id\": \"room123\",\n\t\"event_id\": \"event111\",\n\t\"sender\": \"sender222\",\n\t\"body\": \"A test message\",\n\t\"timestamp\": \"{{timestamp}}\",\n}"
+              "example": "{\n\t\"roomId\": \"room123\",\n\t\"message\": \"This is a test\",\n}"
             }
           }
         }
@@ -50,7 +50,7 @@
   },
   "servers": [
     {
-      "url": "<<url>>"
+      "url": "<<matrix-bot-url>>"
     }
   ],
   "tags": [
