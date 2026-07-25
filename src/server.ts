@@ -1,15 +1,11 @@
-import './commons/profiling.js';
-import './commons/tracing.js';
-
 import { Appservice, SimpleFsStorageProvider } from '@vector-im/matrix-bot-sdk';
 import express from 'express';
 
-import { Logger } from './commons/logger.js';
+import { log } from './commons/logger.js';
 import { config, environment } from './config/config.js';
 import { Matrix } from './controllers/matrixController.js';
 import router from './routes/routes.js';
 
-const log = Logger.fromConfig(config.logger);
 const { port } = config.app;
 
 const storage = new SimpleFsStorageProvider(`${config.matrix.configPath}`);
