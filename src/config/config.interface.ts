@@ -39,6 +39,9 @@ export interface AppConfig {
     url: string;
     apiKey: string;
   };
+  auth: {
+    apiKeys: string[];
+  };
 }
 
 export function requireEnvVar(name: string): string {
@@ -47,4 +50,8 @@ export function requireEnvVar(name: string): string {
     throw new Error(`Environment variable ${name} is not set`);
   }
   return value;
+}
+
+export function splittStringIntoArray(value: string, sepeartor: string) {
+  return value.split(sepeartor);
 }

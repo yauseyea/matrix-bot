@@ -1,6 +1,6 @@
 import type { AppConfig } from './config.interface.js';
 
-import { requireEnvVar } from './config.interface.js';
+import { requireEnvVar, splittStringIntoArray } from './config.interface.js';
 
 export const localConfig: AppConfig = {
   environment: 'local',
@@ -38,5 +38,8 @@ export const localConfig: AppConfig = {
   webhookService: {
     url: requireEnvVar('WEBHOOK_URL'),
     apiKey: requireEnvVar('WEBHOOK_API_KEY'),
+  },
+  auth: {
+    apiKeys: splittStringIntoArray(requireEnvVar('AUTH_API_KEY'), ','),
   },
 };

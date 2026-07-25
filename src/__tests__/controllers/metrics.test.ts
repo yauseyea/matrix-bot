@@ -45,6 +45,9 @@ describe('Metrics', () => {
         url: '...',
         apiKey: '...',
       },
+      auth: {
+        apiKeys: [],
+      },
     });
     const text = await m.getMetrics();
     expect(text).toContain('app="my-service"');

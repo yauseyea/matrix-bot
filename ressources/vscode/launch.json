@@ -1,30 +1,31 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Debug Matrix Bot",
-            "program": "${workspaceFolder}/dist/server.js",
-            "runtimeArgs": ["--import", "${workspaceFolder}/dist/instrumentation.js"],
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-            "skipFiles": ["<node_internals>/**"],
-            "sourceMaps": true,
-            "console": "integratedTerminal",
-            "outputCapture": "std",
-            "env": {
-                "PORT": "9000",
-                "HOMESERVER_URL": "",
-                "HOMESERVER_NAME": "",
-                "AS_TOKEN": "",
-                "HS_TOKEN": "",
-                "WEBHOOK_URL": "",
-                "WEBHOOK_API_KEY": ""
-            }
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Matrix Bot",
+      "program": "${workspaceFolder}/dist/server.js",
+      "runtimeArgs": ["--import", "${workspaceFolder}/dist/instrumentation.js"],
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMaps": true,
+      "console": "integratedTerminal",
+      "outputCapture": "std",
+      "env": {
+        "PORT": "9000",
+        "HOMESERVER_URL": "",
+        "HOMESERVER_NAME": "",
+        "AS_TOKEN": "",
+        "HS_TOKEN": "",
+        "WEBHOOK_URL": "",
+        "WEBHOOK_API_KEY": "",
+        "AUTH_API_KEY": ""
+      }
+    }
+  ]
 }
