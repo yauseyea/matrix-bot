@@ -1,6 +1,6 @@
 services:
   app:
-    image: registry.yauseyenka.de/internal/micro-services/matrix-bot:latest
+    image: registry.yauseyenka.de/internal/micro-services/matrix-bot:development
     container_name: matrix-bot-dev
     security_opt:
       - no-new-privileges:true
@@ -28,6 +28,7 @@ services:
       - HS_TOKEN=${HS_TOKEN}
       - WEBHOOK_URL=${WEBHOOK_URL}
       - WEBHOOK_API_KEY=${WEBHOOK_API_KEY}
+      - AUTH_API_KEY=${AUTH_API_KEY}
     networks:
       - matrix_net
     logging:

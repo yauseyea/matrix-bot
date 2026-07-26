@@ -28,6 +28,7 @@ services:
       - HS_TOKEN=${HS_TOKEN}
       - WEBHOOK_URL=${WEBHOOK_URL}
       - WEBHOOK_API_KEY=${WEBHOOK_API_KEY}
+      - AUTH_API_KEY=${AUTH_API_KEY}
     networks:
       - matrix_net
     logging:
