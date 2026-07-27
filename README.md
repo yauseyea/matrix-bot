@@ -1,6 +1,6 @@
 # matrix-bot
 
-A lightweight Matrix bot that authenticates as an Application Service (AS) against Synapse/MAS and forwards incoming Matrix events to an external microservice via webhook.
+A lightweight Matrix bot that authenticates as an Application Service (AS) against Synapse/MAS and forwards incoming Matrix events to an external microservice via webhook or write a textmessage to an existing channel
 
 ## Why I build this
 
@@ -11,7 +11,7 @@ I wanted a lightweight bot that triggers commands in my home setup in a dedicate
 - Authenticates with Matrix Synapse (and MAS) using AS token / HS token
 - Forwards received Matrix room events to a configurable webhook endpoint
 - Built-in observability: structured logging (Pino), metrics (Prometheus), tracing (OpenTelemetry), and profiling (Pyroscope) — designed to ship straight into a Grafana stack (Loki, Mimir, Tempo, Pyroscope)
-- `/health` and `/metrics` endpoints
+- `/health` and `/metrics` endpoints (using the npm packages [oxlint-config](https://www.npmjs.com/package/@yauseyea/oxlint-config), [node-observability](https://www.npmjs.com/package/@yauseyea/node-observability)
 - Tested with Vitest
 
 ## How it works
@@ -80,11 +80,11 @@ npm run format
 
 see ressources/open-api-example.json for more details
 
-| Endpoint   | Description                                                           |
-| ---------- | --------------------------------------------------------------------- |
-| `/health`  | Liveness/health check                                                 |
-| `/metrics` | Prometheus-compatible metrics                                         |
-| `/webhook` | Receives forwarded Matrix events _(adjust if using another entpoint)_ |
+| Endpoint          | Description                              |
+| ----------------- | -----------------------------------------|
+| `/health`         | Liveness/health check                    |
+| `/metrics`        | Prometheus-compatible metrics            |
+| `/matrix/message` | Responds to a specific Matrix channel    |
 
 ## Observability
 

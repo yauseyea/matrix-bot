@@ -53,4 +53,18 @@ describe('Metrics', () => {
     expect(text).toContain('app="my-service"');
     expect(text).toContain('env="prod"');
   });
+
+  it('does not leak metrics between separate instances', async () => {
+    const other = new Metrics({ name: 'other-app', environment: 'local' });
+    const text = await other.getMetrics();
+    expect(text).toContain('app="other-app"');
+    expect(text).not.toContain('app="test-app"');
+  });
+
+  it('markDown is idempotent', async () => {
+    metrics.markDown();
+    metrics.markDown();
+    const result = await metrics.getMetrics();
+    expect(result).toMatch(/^up\{[^}]+\} 0$/m);
+  });
 });
