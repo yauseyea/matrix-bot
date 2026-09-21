@@ -20,6 +20,19 @@ vi.mock('../../commons/logger.js', () => ({
   },
 }));
 
+const { logErrorMock, logInfoMock, logTraceMock } = vi.hoisted(() => ({
+  logErrorMock: vi.fn(),
+  logInfoMock: vi.fn(),
+  logTraceMock: vi.fn(),
+}));
+vi.mock('../../commons/logger.js', () => ({
+  log: {
+    info: logInfoMock,
+    error: logErrorMock,
+    trace: logTraceMock,
+  },
+}));
+
 import { Matrix } from '../../controllers/matrixController.js';
 
 class FakeAppservice extends EventEmitter {
@@ -45,19 +58,6 @@ describe('Matrix controller', () => {
   });
 
   describe('room.message event', () => {
-    const { logErrorMock, logInfoMock, logTraceMock } = vi.hoisted(() => ({
-      logErrorMock: vi.fn(),
-      logInfoMock: vi.fn(),
-      logTraceMock: vi.fn(),
-    }));
-    vi.mock('../../commons/logger.js', () => ({
-      log: {
-        info: logInfoMock,
-        error: logErrorMock,
-        trace: logTraceMock,
-      },
-    }));
-
     it('ignores messages with no content', async () => {
       appservice.emit('room.message', '!room:example.org', {});
       await flush();

@@ -12,6 +12,8 @@ export default defineConfig({
         'src/instrumentation.ts', // init file — no unit logic
         'src/server.ts', // entry point — no unit logic
         'src/config/**', // env config objects
+        'dist/**',
+        'node_modules/**',
       ],
     },
   },
